@@ -91,6 +91,28 @@ export const constantRoutes = [
   },
 
   {
+    path: '/elComponents',
+    component: Layout,
+    redirect: '/elComponents/Select',
+    name: 'elComponents',
+    meta: { title: 'elComponents', icon: 'el-icon-setting' },
+    children: [
+      {
+        path: 'Select',
+        name: 'Select',
+        component: () => import('@/views/components/select/index'),
+        meta: { title: 'Select', icon: 'select' }
+      },
+      {
+        path: 'Upload',
+        name: 'Upload',
+        component: () => import('@/views/components/upload/index'),
+        meta: { title: 'Upload', icon: 'upload' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
