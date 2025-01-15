@@ -15,9 +15,9 @@
 
 <script>
 import imgCompress from './ElUpload3/imgCompress'
-import ElUploadCard1 from '@/views/components/upload/ElUploadCard1.vue'
-import ElUploadCard2 from '@/views/components/upload/ElUploadCard2.vue'
-import ElUploadCard3 from '@/views/components/upload/ElUpload3/ElUploadCard3.vue'
+import ElUploadCard1 from '@/page/eleComponents/upload/ElUploadCard1'
+import ElUploadCard2 from '@/page/eleComponents/upload/ElUploadCard2.vue'
+import ElUploadCard3 from '@/page/eleComponents/upload/ElUpload3/ElUploadCard3.vue'
 export default {
   components: {
     ElUploadCard1,
@@ -25,13 +25,13 @@ export default {
     ElUploadCard3
   },
   mixins: [imgCompress],
-  data() {
+  data () {
     return {
       activeName: 'ElUploadCard1'
     }
   },
   methods: {
-    handleClick(el) {
+    handleClick (el) {
       this.isActiveName = el.name
     }
   }

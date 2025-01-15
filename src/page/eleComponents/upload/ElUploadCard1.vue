@@ -78,7 +78,7 @@
 import { saveBlobFileCus } from '@/utils/common'
 export default {
   name: 'ElUpLoad',
-  data() {
+  data () {
     return {
       fileList: [],
       fileList2: [],
@@ -97,8 +97,8 @@ export default {
     }
   },
   methods: {
-    handlePictureCardPreview() {},
-    handleRemove() {},
+    handlePictureCardPreview () {},
+    handleRemove () {},
     /**
      * @name 王本灿
      * @introduction 文件状态改变时的钩子，添加文件、上传成功和上传失败时都会被调用
@@ -106,7 +106,7 @@ export default {
      * @param {参数类型} fileList 当前组件的文件列表
      */
 
-    onChange(file, fileList) {
+    onChange (file, fileList) {
       console.log('onChange - file, fileList', file, fileList)
       console.log('onChange - file.row', file.raw)
       const types = ['image/jpeg', 'image/jpg', 'image/png']
@@ -136,7 +136,7 @@ export default {
      * @introduction 上传文件之前的钩子，参数为上传的文件，若返回 false 或者返回 Promise 且被 reject，则停止上传。
      * @param {参数类型} file 上传的文件对象
      */
-    beforeUpload(file) {
+    beforeUpload (file) {
       console.log('beforeUpload - file', file)
       const blob = new Blob([file], { type: file.type })
       console.log('new Blob 转换后的文件', blob)
@@ -154,7 +154,7 @@ export default {
      * @param {参数类型} file 选择的文件对象
      * @param {参数类型} fileList 当前组件的文件列表
      */
-    onSuccess(response, file, fileList) {
+    onSuccess (response, file, fileList) {
       console.log('onSuccess - response', response)
       console.log('onSuccess - file, fileList', file, fileList)
       const types = ['image/jpeg', 'image/jpg', 'image/png']
@@ -172,7 +172,7 @@ export default {
      * @param {参数类型} file 选择的文件对象
      * @param {参数类型} fileList 当前组件的文件列表
      */
-    onProgress(event, file, fileList) {
+    onProgress (event, file, fileList) {
       console.log('onProgress - event', event)
       console.log('onProgress - file, fileList', file, fileList)
       const types = ['image/jpeg', 'image/jpg', 'image/png']
@@ -189,7 +189,7 @@ export default {
      * @introduction 下载文件
      * @param {参数类型} 参数 参数说明
      */
-    downTypechange(type) {
+    downTypechange (type) {
       try {
         if (type === 'up') {
           const { blob, name } = this.upFile
@@ -200,8 +200,6 @@ export default {
         } else if (type === 'changeFileRaw') {
           const { blob, name, file } = this.changeFileRaw
           saveBlobFileCus(file.raw, name)
-        } else {
-
         }
       } catch (error) {
         this.$message({
@@ -217,7 +215,7 @@ export default {
      * @introduction 下载文件
      * @param {参数类型} 参数 参数说明
      */
-    downloadFile(type) {
+    downloadFile (type) {
       if (type === 'up') {
         const { blob, name } = this.upFile
         saveBlobFileCus(blob, name)

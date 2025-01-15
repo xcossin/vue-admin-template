@@ -4,10 +4,10 @@ import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import locale from 'element-ui/lib/locale/lang/en' // lang i18n
+import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n
 
 /* https://github.com/eddiemf/vue-scrollactive */
-import VueScrollactive from 'vue-scrollactive'
+// import VueScrollactive from 'vue-scrollactive'
 
 import '@/styles/index.scss' // global css
 /* 统一引入css文件 */
@@ -19,7 +19,7 @@ import router from './router'
 
 import '@/icons' // icon
 import '@/permission' // permission control
-
+import '@/directives/index'
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -38,7 +38,8 @@ Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
 
-Vue.use(VueScrollactive)
+// Vue.use(VueScrollactive)
+import './plugins/icon'
 Vue.config.productionTip = false
 
 new Vue({

@@ -6,6 +6,10 @@ Vue.use(Router)
 /* Layout */
 import Layout from '@/layout'
 
+/* Router list */
+import { eleRouter } from '@/router/eleComponents/index'
+import { customComponentsRouter } from '@/router/customComponents/index'
+
 /**
  * Note: sub-menu only appear when route children.length >= 1
  * Detail see: https://panjiachen.github.io/vue-element-admin-site/guide/essentials/router-and-nav.html
@@ -91,25 +95,20 @@ export const constantRoutes = [
   },
 
   {
-    path: '/elComponents',
+    path: '/eleComponents',
     component: Layout,
-    redirect: '/elComponents/Select',
-    name: 'elComponents',
-    meta: { title: 'elComponents', icon: 'el-icon-setting' },
-    children: [
-      {
-        path: 'Select',
-        name: 'Select',
-        component: () => import('@/views/components/select/index'),
-        meta: { title: 'Select', icon: 'select' }
-      },
-      {
-        path: 'Upload',
-        name: 'Upload',
-        component: () => import('@/views/components/upload/index'),
-        meta: { title: 'Upload', icon: 'upload' }
-      }
-    ]
+    redirect: '/eleComponents/Select',
+    name: 'eleComponents',
+    meta: { title: 'eleComponents', icon: 'el-icon-setting' },
+    children: eleRouter
+  },
+  {
+    path: '/customComponents',
+    component: Layout,
+    redirect: '/customComponents/Select',
+    name: 'customComponents',
+    meta: { title: 'customComponents', icon: 'el-icon-setting' },
+    children: customComponentsRouter
   },
 
   {
@@ -195,7 +194,7 @@ const createRouter = () => new Router({
 const router = createRouter()
 
 // Detail see: https://github.com/vuejs/vue-router/issues/1234#issuecomment-357941465
-export function resetRouter() {
+export function resetRouter () {
   const newRouter = createRouter()
   router.matcher = newRouter.matcher // reset router
 }
